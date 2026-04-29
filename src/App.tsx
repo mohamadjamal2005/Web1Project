@@ -1,4 +1,4 @@
-import Login from './features/auth/login'
+import Login from './features/auth/login/login'
 
 const App = () => {
   return <Login/>;

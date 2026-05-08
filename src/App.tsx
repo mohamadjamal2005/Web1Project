@@ -3,13 +3,11 @@ import MainLayout from "./layouts/MainLayout";
 import Login from "./features/auth/login/login";
 
 const App = () => {
-  let isLoggedIn : boolean = false;
-  if(isLoggedIn) {
-    return <MainLayout/>;
+  let isLoggedIn : boolean = false; // This would typically come from your auth state
+  if (isLoggedIn) {
+    return <MainLayout />;
   }
-  else{
-    return <AuthLayout><Login /></AuthLayout>;
-  }
+  return <AuthLayout><Login /></AuthLayout>;
 };
 
 export default App;

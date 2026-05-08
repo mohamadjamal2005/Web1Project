@@ -1,5 +1,6 @@
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
+import Login from "./features/auth/login/login";
 
 const App = () => {
   let isLoggedIn : boolean = false;
@@ -7,7 +8,7 @@ const App = () => {
     return <MainLayout/>;
   }
   else{
-    return <AuthLayout>{null}</AuthLayout>;
+    return <AuthLayout><Login /></AuthLayout>;
   }
 };
 

@@ -81,7 +81,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
           <footer className="border-t border-slate-200 bg-white px-4 py-4 text-sm text-slate-600 md:px-6">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <p>© 2026 Web1 Project. All rights reserved.</p>
-              <p>Built with Tailwind CSS and Material Icons.</p>
+              <p>Built with Tailwind CSS and MUI Icons.</p>
             </div>
           </footer>
         </div>

@@ -79,12 +79,14 @@ const Register: React.FC = () => {
             onChange={(e) => setFirstName(e.target.value)}
             required
             variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Person className="text-gray-400" />
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person className="text-gray-400" />
+                  </InputAdornment>
+                ),
+              },
             }}
           />
           <TextField
@@ -94,12 +96,14 @@ const Register: React.FC = () => {
             onChange={(e) => setLastName(e.target.value)}
             required
             variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Person className="text-gray-400" />
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person className="text-gray-400" />
+                  </InputAdornment>
+                ),
+              },
             }}
           />
         </Box>
@@ -112,12 +116,14 @@ const Register: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Email className="text-gray-400" />
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email className="text-gray-400" />
+                </InputAdornment>
+              ),
+            },
           }}
         />
 
@@ -129,23 +135,25 @@ const Register: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
           variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Lock className="text-gray-400" />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock className="text-gray-400" />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
           }}
         />
 
@@ -157,23 +165,25 @@ const Register: React.FC = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
           variant="outlined"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Lock className="text-gray-400" />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle confirm password visibility"
-                  onClick={handleClickShowConfirmPassword}
-                  edge="end"
-                >
-                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock className="text-gray-400" />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle confirm password visibility"
+                    onClick={handleClickShowConfirmPassword}
+                    edge="end"
+                  >
+                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
           }}
         />
 

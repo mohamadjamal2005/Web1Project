@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, Grid, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from '@mui/material';
+import { Box, Typography, Card, CardContent, Grid } from '@mui/material';
 
 const Reports: React.FC = () => {
   return (

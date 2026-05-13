@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   TextField,
   Button,
@@ -10,8 +11,11 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { Visibility, VisibilityOff, Email, Lock, Person } from '@mui/icons-material';
+import { useAuth } from '../context/AuthContext';
 
 const Register: React.FC = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -23,13 +27,18 @@ const Register: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      setError('Please fill in all fields');
+      return;
+    }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-    // Handle register logic here
+    // Simulated register - in a real app, you'd call an API
     console.log('Register attempt:', { firstName, lastName, email, password });
-    setError(''); // Clear any previous errors
+    login();
+    navigate('/dashboard');
   };
 
   const handleClickShowPassword = () => {

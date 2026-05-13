@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   TextField,
   Button,
@@ -10,8 +11,11 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { Visibility, VisibilityOff, Email, Lock } from '@mui/icons-material';
+import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -19,9 +23,14 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
+    if (!email || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
+    // Simulated login - in a real app, you'd call an API
     console.log('Login attempt:', { email, password });
-    setError(''); // Clear any previous errors
+    login();
+    navigate('/dashboard');
   };
 
   const handleClickShowPassword = () => {
@@ -118,7 +127,11 @@ const Login: React.FC = () => {
         <Typography variant="body2" className="text-gray-600">
           Don't have an account?{' '}
           <Link
-            href="#"
+            component="button"
+            onClick={(e) => {
+              e.preventDefault();
+              // This will be handled by AuthLayout tab switching
+            }}
             className="text-blue-600 hover:text-blue-800 font-semibold"
             sx={{
               color: '#2563eb',
